@@ -1,0 +1,325 @@
+// Colores
+$red: hsl(0, 100%, 68%);
+$veryDarkBlue: hsl(230, 29%, 20%);
+$darkGrayishBlue: hsl(230, 11%, 40%);
+$grayishBlue: hsl(231, 7%, 65%);
+$lightGrayishBlue: hsl(207, 33%, 95%);
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.8rem;
+    font-family: 'Barlow', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+button,
+a,
+span {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+}
+
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    margin-inline: auto;
+}
+
+.header {
+    position: relative;
+    padding: 2.5rem 0 5rem 0;
+
+    @media (min-width: 768px) {
+        padding: 6rem 0 15rem 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 40rem;
+        width: 20rem;
+        background-color: $lightGrayishBlue;
+        top: 0;
+        right: 0;
+        border-bottom-left-radius: 7rem;
+        z-index: -100;
+
+        @media (min-width: 480px) {
+            height: 50rem;
+        }
+
+        @media (min-width: 600px) {
+            height: 60rem;
+        }
+
+        @media (min-width: 768px) {
+            width: 45rem;
+            height: 35rem;
+        }
+
+        @media (min-width: 900px) {
+            width: 50rem;
+        }
+
+        @media (min-width: 1024px) {
+            width: 60rem;
+        }
+
+        @media (min-width: 1200px) {
+            width: 70rem;
+            height: 40rem;
+        }
+
+        @media (min-width: 1500px) {
+            width: 95rem;
+        }
+
+        @media (min-width: 1900px) {
+            width: 120rem;
+        }
+    }
+
+    &__contenido {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navegacion {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        list-style: none;
+        text-align: center;
+        width: 34rem;
+        padding: 2rem 0 0 0;
+        position: absolute;
+        top: 20rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FFFFFF;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        border-radius: .3rem;
+
+        @media (min-width: 768px) {
+            all: unset;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5rem;
+
+        }
+
+        &__item {
+            &--border {
+                width: 85%;
+                border-top: 1px solid $grayishBlue;
+                padding: 2.5rem 0;
+                position: relative;
+
+                @media (min-width: 768px) {
+                    width: 100%;
+                    border-top: none;
+                    padding: 0;
+                }
+            }
+        }
+
+
+
+        &__dot {
+            display: none;
+
+            @media (min-width: 768px) {
+                display: block;
+                height: .8rem;
+                width: .8rem;
+                background-color: $grayishBlue;
+                border-radius: 100%;
+            }
+        }
+
+        &__link {
+            font-size: 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $veryDarkBlue;
+            font-weight: 700;
+            letter-spacing: .2rem;
+
+            &::after {
+                content: '';
+                display: block;
+                height: .2rem;
+                width: 0;
+                background-color: $veryDarkBlue;
+                transition: width 300ms ease;
+            }
+
+            &--login {
+                color: $grayishBlue;
+
+                &::after {
+                    background-color: $grayishBlue;
+                }
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .overlay {
+        display: flex;
+    }
+
+    &__icon-burguer {
+        cursor: pointer;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.main {
+    overflow-x: hidden;
+
+    &__contenido {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 8rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 5rem;
+            grid-auto-flow: column;
+        }
+
+        @media (min-width: 900px) {
+            align-items: center;
+        }
+    }
+
+    &__imagen {
+        display: block;
+        width: 150%;
+
+        @media (min-width: 768px) {
+            grid-column: 2/3;
+        }
+    }
+
+    &__info {
+        padding-top: 1rem;
+        text-transform: uppercase;
+
+        @media (min-width: 768px) {
+            grid-column: 1/2;
+        }
+    }
+
+    &__meta {
+        font-size: 1.6rem;
+        color: $grayishBlue;
+        letter-spacing: .2rem;
+
+        &--bg {
+            background-color: $veryDarkBlue;
+            color: $lightGrayishBlue;
+            font-weight: 700;
+            padding: .5rem 1rem;
+            border-radius: 10rem;
+            margin: 0 1rem 0 0;
+        }
+    }
+
+    &__heading {
+        padding: 2rem 0;
+        font-size: 4rem;
+        line-height: 1;
+        color: $veryDarkBlue;
+
+        @media (min-width: 768px) {
+            font-size: 5.5rem;
+            padding: 3rem 0;
+        }
+    }
+
+    &__parrafo {
+        color: $darkGrayishBlue;
+        text-transform: none;
+        padding-bottom: 2.5rem;
+
+        @media (min-width: 768px) {
+            font-size: 2.2rem;
+            padding-bottom: 5rem;
+        }
+    }
+
+}
+
+.buttons {
+
+    &__btn {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+        cursor: pointer;
+        letter-spacing: .1rem;
+
+        @media (min-width: 768px) {
+            font-size: 2rem;
+            padding: 1.5rem 2.5rem;
+        }
+
+        &--red {
+            background-color: $red;
+            color: $lightGrayishBlue;
+            font-weight: 700;
+            transition: background-color 300ms ease;
+
+            &:hover {
+                background-color: lighten($red , 10);
+            }
+        }
+
+        &--trans {
+            color: $grayishBlue;
+            background-color: transparent;
+        }
+    }
+
+}
